@@ -153,12 +153,6 @@ MIT License
 
 ---
 
-## 📸 Screenshots
-
-*(You can insert GUI screenshots here with `![Screenshot](./assets/screenshot1.png)` if available)*
-
----
-
 ## 👤 Author
 
 **Soumodip Sanyal**  
