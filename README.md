@@ -1,167 +1,139 @@
-# 📚 Personal Law Assistant (India) 🇮🇳
+# ⚖️ Personal Law Assistant
 
-A modern, dynamic, and fully offline desktop-based legal reference tool that helps users search and interact with Indian laws including the Constitution of India, Indian Penal Code (IPC), and Code of Criminal Procedure (CrPC). This application is equipped with advanced features like PDF export, text-to-speech, animated GUI, and keyword-based legal search integrated with Indian Kanoon for case references.
-
----
-
-## 🧠 Features
-
-- 🔍 **Smart Search**: Search by section number or keywords across Constitution, IPC, and CrPC.
-- 📜 **Full Constitution of India**: Stored in JSON, fully indexed and searchable.
-- ⚖️ **IPC and CrPC**: Complete sections stored in a local SQLite database.
-- 📁 **PDF Export**: Save search results or any article/section to a professionally formatted PDF.
-- 🔊 **Text-to-Speech**: Read aloud any legal content using offline TTS (Text-to-Speech).
-- 🌐 **Indian Kanoon Integration**: Search for relevant case law via Indian Kanoon in one click.
-- 🎨 **Dynamic GUI**: Built with ttkbootstrap and `tkinter`, includes animated background and stylish UI.
-- ⌨️ **Keyboard Shortcut**: Press `Enter` to perform a search instantly.
-- 💡 **Fully Offline**: All primary features work without the internet.
+**Personal Law Assistant** is a fully offline desktop application built in Python that enables users to search through and explore major Indian laws like the Constitution of India, Indian Penal Code (IPC), and Criminal Procedure Code (CrPC). It also integrates Indian Kanoon web results and provides PDF export and text-to-speech functionalities — all in a dynamic, modern GUI.
 
 ---
 
-## 📦 Tech Stack
+## 🖼️ Screenshot
 
-| Component        | Technology Used         |
-|------------------|--------------------------|
-| GUI Framework     | `tkinter`, `ttkbootstrap` |
-| Database          | SQLite (`law_data.db`)    |
-| Constitution Data | JSON (`constitution.json`)|
-| PDF Export        | `reportlab`              |
-| Text-to-Speech    | `pyttsx3`                |
-| Web Search        | `webbrowser` (Indian Kanoon) |
-| OS Compatibility  | Windows, Linux           |
+![Personal Law Assistant Screenshot](./📘%20Personal%20Law%20Assistant%2017_06_2025%204_50_23%20AM.png)
 
 ---
 
-## 🏁 Getting Started
+## ✨ Features
 
-### 🔧 Installation
+- ✅ Offline search for **IPC**, **CrPC**, and **Indian Constitution**  
+- ✅ Smart **section-based** and **keyword-based** search  
+- ✅ View results in a clean, readable GUI  
+- ✅ Export results as **PDF**  
+- ✅ Integrate with **Indian Kanoon** to fetch landmark case summaries  
+- ✅ **Text-to-speech** feature for reading law aloud  
+- ✅ Sleek dark theme GUI using `ttkbootstrap`
 
-1. **Clone the repo:**
+---
+
+## 🛠️ Built With
+
+- 🐍 **Python 3.10+**
+- 🖼️ `tkinter` & `ttkbootstrap` — for building the GUI
+- 📁 `json` — for storing legal data locally
+- 📄 `fpdf` — for PDF export
+- 🌐 `webbrowser` — for Indian Kanoon integration
+- 🔊 `pyttsx3` — for Text-to-Speech
+
+---
+
+## 📁 Folder Structure
+
+/PersonalLawAssistant/
+│
+├── main.py # GUI application entry point
+├── search.py # Contains section and keyword search logic
+├── pdf_export.py # Code to export content as PDF
+├── indian_kanoon.py # Indian Kanoon web integration
+├── utils.py # Optional utilities and text formatting
+├── requirements.txt # Python package dependencies
+├── data/
+│ ├── ipc.json # IPC Sections
+│ ├── crpc.json # CrPC Sections
+│ └── constitution.json # Constitution Articles
+└── README.md
+
+yaml
+Copy
+Edit
+
+---
+
+## 📦 Installation
+
+### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourname/personal-law-assistant.git
-cd personal-law-assistant
-```
-
-2. **Install the dependencies:**
-
-```bash
+git clone https://github.com/yourusername/PersonalLawAssistant.git
+cd PersonalLawAssistant
+2. Create virtual environment (optional but recommended)
+bash
+Copy
+Edit
+python -m venv venv
+source venv/bin/activate      # Linux/macOS
+venv\Scripts\activate.bat     # Windows
+3. Install dependencies
+bash
+Copy
+Edit
 pip install -r requirements.txt
-```
-
-3. **Run the app:**
-
-```bash
+📂 Requirements
+ini
+Copy
+Edit
+ttkbootstrap==1.10.1
+fpdf==1.7.2
+pyttsx3==2.90
+🚀 Usage
+Run the application
+bash
+Copy
+Edit
 python main.py
-```
+Functionalities
+Select law type from dropdown (ipc, crpc, constitution)
 
----
+Enter section number or keyword
 
-### 📁 Folder Structure
+Click 🔍 Search to view results
 
-```
-personal-law-assistant/
-├── constitution.json         # Constitution of India (JSON)
-├── law_data.db               # IPC and CrPC sections (SQLite DB)
-├── main.py                   # Application entry point
-├── utils/
-│   ├── pdf_exporter.py       # PDF generation logic
-│   ├── tts_engine.py         # Text-to-speech utility
-│   └── data_handler.py       # Database and JSON logic
-├── assets/
-│   ├── icons/                # Icons for buttons (search, PDF, TTS)
-│   └── background/           # Optional animated background
-└── requirements.txt
-```
+Click 🖨 Export PDF to save the displayed result as a PDF
 
----
+Click 📜 Indian Kanoon to fetch related online cases
 
-## 📝 Requirements
+Click 🗣 Read Aloud to enable Text-to-Speech
 
-```
-ttkbootstrap
-pyttsx3
-reportlab
-Pillow
-```
+📘 Datasets Used
+All JSON datasets were manually created from publicly available government resources.
 
-Install them via:
+Datasets include:
 
-```bash
-pip install -r requirements.txt
-```
+All sections of IPC and CrPC
 
----
+Full Constitution of India with articles and schedules
 
-## 🔐 Data Sources
+🧪 Future Improvements
+ Add voice search via speech_recognition
 
-- ✅ Constitution of India: Local `constitution.json`
-- ✅ Indian Penal Code: Local SQLite table `ipc_sections`
-- ✅ Code of Criminal Procedure: Local SQLite table `crpc_sections`
-- ✅ Indian Kanoon: Case search using `https://indiankanoon.org/search/?formInput=`
+ Add bookmark/save feature for sections and cases
 
----
+ Add multi-language support (Hindi, Bengali, etc.)
 
-## 💡 How It Works
+ Connect to a remote server for real-time law updates
 
-- User selects the law domain (IPC, CrPC, Constitution)
-- Inputs either a section number or keyword
-- Hits "Search" or presses `Enter`
-- Result is shown in styled output box with options to:
-  - Export as PDF
-  - Read aloud
-  - Search related cases on Indian Kanoon
+🤝 Contribution
+Have suggestions or want to contribute?
 
----
+Fork this repository
 
-## 🎯 Use Cases
+Create your feature branch (git checkout -b feature/NewFeature)
 
-- ⚖️ Law students preparing for exams
-- 📚 Researchers studying the Indian legal system
-- 👨‍💼 Lawyers needing offline legal reference
-- 🇮🇳 Citizens seeking rights or code clarity
+Commit your changes (git commit -m 'Add NewFeature')
 
----
+Push to the branch (git push origin feature/NewFeature)
 
-## 🧪 Testing & Compatibility
+Open a Pull Request
 
-- Tested on: `Windows 10`, `Windows 11`, and `Ubuntu 22.04`
-- Python version: `3.10+` recommended
+📜 License
+This project is open-source and free to use under the MIT License.
 
----
-
-## 🚀 Future Enhancements
-
-- 🏛️ Landmark case crawler with Indian Kanoon scraper
-- 🗂️ Section bookmarks and history
-- 📱 Mobile app or web-based version
-- 🎙️ Audio summary or chatbot assistant
-
----
-
-## 📜 License
-
-MIT License
-
----
-
-## 🙏 Acknowledgments
-
-- [Indian Kanoon](https://indiankanoon.org)
-- Government of India legal datasets
-- Python developers & open-source community
-
----
-
-## 📸 Screenshots
-
-*(You can insert GUI screenshots here with `![Screenshot](./assets/screenshot1.png)` if available)*
-
----
-
-## 👤 Author
-
-**Soumodip Sanyal**  
-*Python Enthusiast | LegalTech Developer | GUI Designer*
-
-Connect: [GitHub](https://github.com/) | [LinkedIn](https://linkedin.com/)
+👨‍💻 Author
+Soumodip Sanyal
+Crafted with ❤️ and justice for the Indian legal tech community.
