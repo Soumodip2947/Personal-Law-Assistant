@@ -1,0 +1,10 @@
+ttkbootstrap
+pyttsx3
+reportlab
+Pillow
+pyperclip
+transformers
+requests
+torch
+speechrecognition
+pyaudio
